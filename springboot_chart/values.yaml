@@ -2,13 +2,14 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+namespace: springboot-demo
+# The name of the chart.
 replicaCount: 1
 
 image:
-  repository: nginx
+  repository: springboot-demo
   pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  tag: "1.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -41,7 +42,7 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8080
 
 ingress:
   enabled: false

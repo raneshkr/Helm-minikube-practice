@@ -4,6 +4,7 @@ metadata:
   name: {{ include "springboot.fullname" . }}
   labels:
     {{- include "springboot.labels" . | nindent 4 }}
+  namespace: {{ .Values.namespace }}
 spec:
   type: {{ .Values.service.type }}
   ports:
