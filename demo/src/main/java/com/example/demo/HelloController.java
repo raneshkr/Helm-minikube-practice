@@ -8,6 +8,11 @@ public class HelloController {
 
     @GetMapping("/")
     public String hello() {
-        return "Hello, world!";
+        return "Welcome to Todo Application! Visit /api/todos to manage your todos.";
+    }
+
+    @GetMapping("/health")
+    public String health() {
+        return "Application is running healthy!";
     }
 }
