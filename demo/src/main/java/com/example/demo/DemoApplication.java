@@ -8,6 +8,8 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
+		System.out.println("Todo Application started successfully!");
+		System.out.println("Access the API at http://localhost:8080/api/todos");
 	}
 
 }

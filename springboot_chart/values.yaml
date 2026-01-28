@@ -2,14 +2,14 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-namespace: springboot-demo
+namespace: todo-app
 # The name of the chart.
-replicaCount: 1
+replicaCount: 3
 
 image:
-  repository: springboot-demo
-  pullPolicy: IfNotPresent
+  repository: todo-app
   tag: "1.0"
+  pullPolicy: Never  # Important: tells Minikube to use local image
 
 imagePullSecrets: []
 nameOverride: ""
@@ -41,7 +41,7 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 8080
 
 ingress:
@@ -82,11 +82,11 @@ readinessProbe:
     port: http
 
 autoscaling:
-  enabled: false
+  enabled: True
   minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  maxReplicas: 4
+  targetCPUUtilizationPercentage: 40
+  targetMemoryUtilizationPercentage: 40
 
 # Additional volumes on the output Deployment definition.
 volumes: []
